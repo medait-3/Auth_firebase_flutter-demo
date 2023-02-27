@@ -17,7 +17,7 @@ class Login extends StatefulWidget {
 class _LoginState extends State<Login> {
   final _emailController = TextEditingController();
   final _passwordController = TextEditingController();
-
+  late bool _passwordVisible;
   Future singIn() async {
     await FirebaseAuth.instance.signInWithEmailAndPassword(
       email: _emailController.text.trim(),
@@ -26,7 +26,13 @@ class _LoginState extends State<Login> {
   }
 
   @override
+  void initState() {
+    _passwordVisible = false;
+  }
+
+  @override
   void dispose() {
+    super.dispose();
     _emailController.dispose();
     _passwordController.dispose();
   }
@@ -100,10 +106,24 @@ class _LoginState extends State<Login> {
                     padding: EdgeInsets.symmetric(horizontal: 20),
                     child: TextField(
                       controller: _passwordController,
-                      obscureText: true,
+                      obscureText: !_passwordVisible,
                       decoration: InputDecoration(
                         border: InputBorder.none,
                         hintText: 'Password',
+                        suffixIcon: IconButton(
+                            icon: Icon(
+                              // Based on passwordVisible state choose the icon
+                              _passwordVisible
+                                  ? Icons.visibility
+                                  : Icons.visibility_off,
+                              color: Colors.grey[20],
+                            ),
+                            onPressed: () {
+                              // Update the state i.e. toogle the state of passwordVisible variable
+                              setState(() {
+                                _passwordVisible = !_passwordVisible;
+                              });
+                            }),
                       ),
                     ),
                   ),

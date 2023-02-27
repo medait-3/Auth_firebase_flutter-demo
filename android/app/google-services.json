@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "920153824958",
+    "project_id": "authdemaflutterr",
+    "storage_bucket": "authdemaflutterr.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:920153824958:android:e69a3a33317ba2f0e788ef",
+        "android_client_info": {
+          "package_name": "com.example.authfirebase"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "920153824958-05uu4mfp9imdst156hq5ucrs5j48k3eo.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBiXRwfBz450SBbzDqHzdNZRgHdGxrMqzE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "920153824958-05uu4mfp9imdst156hq5ucrs5j48k3eo.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

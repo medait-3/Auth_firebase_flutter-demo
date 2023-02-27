@@ -23,10 +23,10 @@ class _LoginState extends State<Login> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
 //:logo
-            Image.asset(
-              "name",
-              height: 150,
-            ),
+            // Image.asset(
+            //   "name",
+            //   height: 150,
+            // ),
             SizedBox(
               height: 20,
             ),
@@ -112,7 +112,22 @@ class _LoginState extends State<Login> {
               ),
             ),
             SizedBox(
-              height: 20,
+              height: 25,
+            ),
+            //txt sign up
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  'Not yet a member ? ',
+                  style: TextStyle(fontWeight: FontWeight.bold),
+                ),
+                Text(
+                  'sing up',
+                  style: TextStyle(
+                      color: Colors.green, fontWeight: FontWeight.bold),
+                ),
+              ],
             ),
           ],
         ),

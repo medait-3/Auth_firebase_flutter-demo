@@ -30,8 +30,18 @@ class _LoginState extends State<Login> {
             //titlle
             Text(
               'sing in ',
-              style: TextStyle(fontSize: 40, fontWeight: FontWeight.bold),
-            )
+              style: TextStyle(
+                fontSize: 40,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            //subtitle
+            Text(
+              'welcome back',
+              style: TextStyle(
+                fontSize: 18,
+              ),
+            ),
           ],
         ),
       )),

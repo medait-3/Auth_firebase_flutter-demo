@@ -120,7 +120,7 @@ class _LoginState extends State<Login> {
                               _passwordVisible
                                   ? Icons.visibility
                                   : Icons.visibility_off,
-                              color: Colors.grey[20],
+                              color: Colors.grey[20], size: 18,
                             ),
                             onPressed: () {
                               // Update the state i.e. toogle the state of passwordVisible variable

@@ -127,9 +127,6 @@ class _SignupState extends State<Signup> {
               SizedBox(
                 height: 10,
               ),
-              SizedBox(
-                height: 10,
-              ),
               //confirmeed password
               Padding(
                 padding: EdgeInsets.symmetric(horizontal: 25),

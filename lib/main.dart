@@ -1,5 +1,7 @@
 import 'package:authfirebase/auth.dart';
+import 'package:authfirebase/secreens/home.dart';
 import 'package:authfirebase/secreens/login.dart';
+import 'package:authfirebase/secreens/singup.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 
@@ -19,7 +21,13 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(),
-      home: const Auth(),
+      // home: const Auth(),
+      routes: {
+        '/': (context) => Auth(),
+        'home': (context) => Home(),
+        'signup': (context) => Signup(),
+        'login': (context) => Login(),
+      },
     );
   }
 }

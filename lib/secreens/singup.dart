@@ -1,37 +1,41 @@
-import 'dart:math';
-import 'dart:ui';
-
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 
-class Login extends StatefulWidget {
-  const Login({super.key});
+class Signup extends StatefulWidget {
+  const Signup({super.key});
 
   @override
-  State<Login> createState() => _LoginState();
+  State<Signup> createState() => _SignupState();
 }
 
-class _LoginState extends State<Login> {
+class _SignupState extends State<Signup> {
   final _emailController = TextEditingController();
   final _passwordController = TextEditingController();
-  late bool _passwordVisible;
-  Future singIn() async {
-    await FirebaseAuth.instance.signInWithEmailAndPassword(
-      email: _emailController.text.trim(),
-      password: _passwordController.text.trim(),
-    );
+  final _confirmPasswordController = TextEditingController();
+
+  Future singUp() async {
+    if (passwordConfirmed()) {
+      await FirebaseAuth.instance.createUserWithEmailAndPassword(
+        email: _emailController.text.trim(),
+        password: _passwordController.text.trim(),
+      );
+      Navigator.of(context).pushNamed('/');
+    }
   }
 
-  void gosignup() {
-    Navigator.of(context).popAndPushNamed('signup');
+  bool passwordConfirmed() {
+    if (_passwordController.text.trim() ==
+        _confirmPasswordController.text.trim()) {
+      return true;
+    } else {
+      return false;
+    }
   }
 
-  @override
-  void initState() {
-    _passwordVisible = false;
+  void gosignin() {
+    Navigator.of(context).popAndPushNamed('login');
   }
 
   @override
@@ -39,6 +43,7 @@ class _LoginState extends State<Login> {
     super.dispose();
     _emailController.dispose();
     _passwordController.dispose();
+    _confirmPasswordController.dispose();
   }
 
   @override
@@ -61,7 +66,7 @@ class _LoginState extends State<Login> {
               ),
               //titlle
               Text(
-                'sing in ',
+                'sing up ',
                 style: TextStyle(
                   fontSize: 40,
                   fontWeight: FontWeight.bold,
@@ -69,7 +74,7 @@ class _LoginState extends State<Login> {
               ),
               //subtitle
               Text(
-                'welcome back',
+                'signup first',
                 style: TextStyle(
                   fontSize: 18,
                 ),
@@ -99,7 +104,7 @@ class _LoginState extends State<Login> {
               SizedBox(
                 height: 10,
               ),
-              //email
+              //passwor
               Padding(
                 padding: EdgeInsets.symmetric(horizontal: 25),
                 child: Container(
@@ -110,24 +115,36 @@ class _LoginState extends State<Login> {
                     padding: EdgeInsets.symmetric(horizontal: 20),
                     child: TextField(
                       controller: _passwordController,
-                      obscureText: !_passwordVisible,
+                      obscureText: true,
                       decoration: InputDecoration(
                         border: InputBorder.none,
                         hintText: 'Password',
-                        suffixIcon: IconButton(
-                            icon: Icon(
-                              // Based on passwordVisible state choose the icon
-                              _passwordVisible
-                                  ? Icons.visibility
-                                  : Icons.visibility_off,
-                              color: Colors.grey[20],
-                            ),
-                            onPressed: () {
-                              // Update the state i.e. toogle the state of passwordVisible variable
-                              setState(() {
-                                _passwordVisible = !_passwordVisible;
-                              });
-                            }),
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+              SizedBox(
+                height: 10,
+              ),
+              SizedBox(
+                height: 10,
+              ),
+              //confirmeed password
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: 25),
+                child: Container(
+                  decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(12)),
+                  child: Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 20),
+                    child: TextField(
+                      controller: _confirmPasswordController,
+                      obscureText: true,
+                      decoration: InputDecoration(
+                        border: InputBorder.none,
+                        hintText: 'Confirm Password',
                       ),
                     ),
                   ),
@@ -136,11 +153,12 @@ class _LoginState extends State<Login> {
               SizedBox(
                 height: 15,
               ),
+
               //sing button
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 25),
                 child: GestureDetector(
-                  onTap: singIn,
+                  onTap: singUp,
                   child: Container(
                     padding: EdgeInsets.all(16),
                     decoration: BoxDecoration(
@@ -148,7 +166,7 @@ class _LoginState extends State<Login> {
                         borderRadius: BorderRadius.circular(12)),
                     child: Center(
                       child: Text(
-                        'sing in',
+                        'sing up',
                         style: TextStyle(
                           color: Colors.white,
                           fontWeight: FontWeight.bold,
@@ -167,13 +185,13 @@ class _LoginState extends State<Login> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    'Not yet a member ? ',
+                    'I  am a member ? ',
                     style: TextStyle(fontWeight: FontWeight.bold),
                   ),
                   GestureDetector(
-                    onTap: gosignup,
+                    onTap: gosignin,
                     child: Text(
-                      'sing up',
+                      'sing in',
                       style: TextStyle(
                           color: Colors.green, fontWeight: FontWeight.bold),
                     ),

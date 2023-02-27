@@ -1,3 +1,6 @@
+import 'dart:math';
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
@@ -40,6 +43,27 @@ class _LoginState extends State<Login> {
               'welcome back',
               style: TextStyle(
                 fontSize: 18,
+              ),
+            ),
+            SizedBox(
+              height: 50,
+            ),
+            //email
+            Padding(
+              padding: EdgeInsets.symmetric(horizontal: 25),
+              child: Container(
+                decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(12)),
+                child: Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 20),
+                  child: TextField(
+                    decoration: InputDecoration(
+                      border: InputBorder.none,
+                      hintText: 'Email',
+                    ),
+                  ),
+                ),
               ),
             ),
           ],

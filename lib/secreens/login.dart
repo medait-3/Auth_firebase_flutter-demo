@@ -66,6 +66,54 @@ class _LoginState extends State<Login> {
                 ),
               ),
             ),
+            SizedBox(
+              height: 10,
+            ),
+            //email
+            Padding(
+              padding: EdgeInsets.symmetric(horizontal: 25),
+              child: Container(
+                decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(12)),
+                child: Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 20),
+                  child: TextField(
+                    obscureText: true,
+                    decoration: InputDecoration(
+                      border: InputBorder.none,
+                      hintText: 'Password',
+                    ),
+                  ),
+                ),
+              ),
+            ),
+            SizedBox(
+              height: 15,
+            ),
+            //sing button
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 25),
+              child: Container(
+                padding: EdgeInsets.all(16),
+                decoration: BoxDecoration(
+                    color: Colors.amber[900],
+                    borderRadius: BorderRadius.circular(12)),
+                child: Center(
+                  child: Text(
+                    'sing in',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 18,
+                    ),
+                  ),
+                ),
+              ),
+            ),
+            SizedBox(
+              height: 20,
+            ),
           ],
         ),
       )),

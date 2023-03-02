@@ -56,16 +56,11 @@ class _LoginState extends State<Login> {
               //   "name",
               //   height: 150,
               // ),
-              SizedBox(
-                height: 20,
-              ),
+              SizedBox(height: 20),
               //titlle
               Text(
                 'sing in ',
-                style: TextStyle(
-                  fontSize: 40,
-                  fontWeight: FontWeight.bold,
-                ),
+                style: TextStyle(fontSize: 40, fontWeight: FontWeight.bold),
               ),
               //subtitle
               Text(
@@ -74,10 +69,8 @@ class _LoginState extends State<Login> {
                   fontSize: 18,
                 ),
               ),
-              SizedBox(
-                height: 50,
-              ),
-              //email
+              SizedBox(height: 50),
+              //email textfield
               Padding(
                 padding: EdgeInsets.symmetric(horizontal: 25),
                 child: Container(
@@ -87,6 +80,8 @@ class _LoginState extends State<Login> {
                   child: Padding(
                     padding: EdgeInsets.symmetric(horizontal: 20),
                     child: TextField(
+                      cursorColor: Colors.amber[900],
+                      keyboardType: TextInputType.emailAddress,
                       controller: _emailController,
                       decoration: InputDecoration(
                         border: InputBorder.none,
@@ -96,19 +91,21 @@ class _LoginState extends State<Login> {
                   ),
                 ),
               ),
-              SizedBox(
-                height: 10,
-              ),
-              //email
+
+              SizedBox(height: 10),
+
+              //password textfield
               Padding(
                 padding: EdgeInsets.symmetric(horizontal: 25),
                 child: Container(
                   decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(12)),
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(12),
+                  ),
                   child: Padding(
                     padding: EdgeInsets.symmetric(horizontal: 20),
                     child: TextField(
+                      cursorColor: Colors.amber[900],
                       controller: _passwordController,
                       obscureText: !_passwordVisible,
                       decoration: InputDecoration(

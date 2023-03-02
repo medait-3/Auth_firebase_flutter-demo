@@ -92,6 +92,8 @@ class _SignupState extends State<Signup> {
                   child: Padding(
                     padding: EdgeInsets.symmetric(horizontal: 20),
                     child: TextField(
+                      cursorColor: Colors.amber[900],
+                      keyboardType: TextInputType.emailAddress,
                       controller: _emailController,
                       decoration: InputDecoration(
                         border: InputBorder.none,
@@ -114,6 +116,7 @@ class _SignupState extends State<Signup> {
                   child: Padding(
                     padding: EdgeInsets.symmetric(horizontal: 20),
                     child: TextField(
+                      cursorColor: Colors.amber[900],
                       controller: _passwordController,
                       obscureText: true,
                       decoration: InputDecoration(
@@ -137,6 +140,7 @@ class _SignupState extends State<Signup> {
                   child: Padding(
                     padding: EdgeInsets.symmetric(horizontal: 20),
                     child: TextField(
+                      cursorColor: Colors.amber[900],
                       controller: _confirmPasswordController,
                       obscureText: true,
                       decoration: InputDecoration(
@@ -175,8 +179,39 @@ class _SignupState extends State<Signup> {
                 ),
               ),
               SizedBox(
-                height: 25,
+                height: 20,
               ),
+              // or continue with
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 25.0),
+                child: Row(
+                  children: [
+                    Expanded(
+                      child: Divider(
+                        thickness: 0.5,
+                        color: Colors.grey[400],
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 10.0),
+                      child: Text(
+                        'Or continue with',
+                        style: TextStyle(color: Colors.grey[700]),
+                      ),
+                    ),
+                    Expanded(
+                      child: Divider(
+                        thickness: 0.5,
+                        color: Colors.grey[400],
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              SizedBox(
+                height: 20,
+              ),
+
               //txt sign up
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,

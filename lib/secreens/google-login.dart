@@ -1,17 +1,19 @@
-import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
+import 'dart:html';
 
-class Google_login extends StatefulWidget {
-  const Google_login({super.key});
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 
-  @override
-  State<Google_login> createState() => _Google_loginState();
-}
+class AuthGoogle {
+  signINwithgoogle() async {
+    //sign in process
+    final GoogleSignInAccount? gUser = await GoogleSignIn().signIn();
+    //obtation auth from request
 
-class _Google_loginState extends State<Google_login> {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold();
+    final GoogleSignInAuthentication gAuth = await gUser!.authentication;
+    //creat neew user
+    final credential = GoogleAuthProvider.credential(
+        accessToken: gAuth.accessToken, idToken: gAuth.idToken);
+// let signin
+    return await FirebaseAuth.instance.signInWithCredential(credential);
   }
 }

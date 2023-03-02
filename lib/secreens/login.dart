@@ -134,6 +134,24 @@ class _LoginState extends State<Login> {
                 ),
               ),
               SizedBox(
+                height: 10,
+              ),
+
+              // forgot password?
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 25.0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    Text(
+                      'Forgot Password?',
+                      style: TextStyle(color: Colors.grey[600]),
+                    ),
+                  ],
+                ),
+              ),
+
+              SizedBox(
                 height: 15,
               ),
               //sing button
@@ -160,8 +178,39 @@ class _LoginState extends State<Login> {
                 ),
               ),
               SizedBox(
-                height: 25,
+                height: 20,
               ),
+              // or continue with
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 25.0),
+                child: Row(
+                  children: [
+                    Expanded(
+                      child: Divider(
+                        thickness: 0.5,
+                        color: Colors.grey[400],
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 10.0),
+                      child: Text(
+                        'Or continue with',
+                        style: TextStyle(color: Colors.grey[700]),
+                      ),
+                    ),
+                    Expanded(
+                      child: Divider(
+                        thickness: 0.5,
+                        color: Colors.grey[400],
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              SizedBox(
+                height: 20,
+              ),
+
               //txt sign up
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,

@@ -20,6 +20,11 @@ class _ForgetPsswdState extends State<ForgetPsswd> {
       email: _emailController.text.trim(),
     );
     print("gooood");
+    final snackBar = SnackBar(
+      content: Text('Cheek you Email'),
+    );
+
+    ScaffoldMessenger.of(context).showSnackBar(snackBar);
   }
 
   @override

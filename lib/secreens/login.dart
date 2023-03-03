@@ -114,12 +114,13 @@ class _LoginState extends State<Login> {
                         border: InputBorder.none,
                         hintText: 'Password',
                         suffixIcon: IconButton(
+                            color: Colors.grey,
                             icon: Icon(
                               // Based on passwordVisible state choose the icon
                               _passwordVisible
                                   ? Icons.visibility
                                   : Icons.visibility_off,
-                              color: Colors.grey[20],
+
                               size: 18,
                             ),
                             onPressed: () {

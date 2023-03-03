@@ -1,6 +1,7 @@
 import 'dart:math';
 import 'dart:ui';
 // import 'dart:html';
+import 'package:auth_buttons/auth_buttons.dart';
 import 'package:authfirebase/secreens/socialsingin.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -210,20 +211,27 @@ class _LoginState extends State<Login> {
                 height: 20,
               ),
               Row(
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  InkWell(
-                      onTap: () async {
-                        await AuthSocial().signInWithGoogle();
-                      },
-                      child: Text("google")),
+                  GoogleAuthButton(
+                    onPressed: () async {
+                      await AuthSocial().signInWithGoogle();
+                    },
+                    style: AuthButtonStyle(
+                      buttonType: AuthButtonType.icon,
+                    ),
+                  ),
                   SizedBox(
                     width: 22,
                   ),
-                  InkWell(
-                      onTap: () async {
-                        await AuthSocial().signInWithFacebook();
-                      },
-                      child: Text("facebook")),
+                  FacebookAuthButton(
+                    onPressed: () async {
+                      await AuthSocial().signInWithFacebook();
+                    },
+                    style: AuthButtonStyle(
+                      buttonType: AuthButtonType.icon,
+                    ),
+                  ),
                 ],
               ),
               SizedBox(

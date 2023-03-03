@@ -5,6 +5,8 @@ import 'package:authfirebase/secreens/singup.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 
+import 'forgetpassword/forgetpasword.dart';
+
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
@@ -19,7 +21,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
+      title: 'Flutter AuhDemo',
       theme: ThemeData(),
       // home: const Auth(),
       routes: {
@@ -27,6 +29,7 @@ class MyApp extends StatelessWidget {
         'home': (context) => Home(),
         'signup': (context) => Signup(),
         'login': (context) => Login(),
+        'forgetpsswd': (context) => ForgetPsswd(),
       },
     );
   }

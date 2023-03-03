@@ -27,6 +27,10 @@ class _LoginState extends State<Login> {
     );
   }
 
+  void goForgetPwd() {
+    Navigator.of(context).popAndPushNamed('forgetpsswd');
+  }
+
   void gosignup() {
     Navigator.of(context).popAndPushNamed('signup');
   }
@@ -144,9 +148,12 @@ class _LoginState extends State<Login> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
-                    Text(
-                      'Forgot Password?',
-                      style: TextStyle(color: Colors.grey[600]),
+                    GestureDetector(
+                      onTap: goForgetPwd,
+                      child: Text(
+                        'Forgot Password?',
+                        style: TextStyle(color: Colors.grey[600]),
+                      ),
                     ),
                   ],
                 ),

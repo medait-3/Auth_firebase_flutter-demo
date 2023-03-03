@@ -1,6 +1,7 @@
 import 'dart:math';
 import 'dart:ui';
-
+// import 'dart:html';
+import 'package:authfirebase/secreens/socialsingin.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
@@ -117,7 +118,8 @@ class _LoginState extends State<Login> {
                               _passwordVisible
                                   ? Icons.visibility
                                   : Icons.visibility_off,
-                              color: Colors.grey[20], size: 18,
+                              color: Colors.grey[20],
+                              size: 18,
                             ),
                             onPressed: () {
                               // Update the state i.e. toogle the state of passwordVisible variable
@@ -207,7 +209,14 @@ class _LoginState extends State<Login> {
               SizedBox(
                 height: 20,
               ),
-
+              InkWell(
+                  onTap: () async {
+                    await AuthSocial().signInWithGoogle();
+                  },
+                  child: Text("google")),
+              SizedBox(
+                height: 20,
+              ),
               //txt sign up
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,

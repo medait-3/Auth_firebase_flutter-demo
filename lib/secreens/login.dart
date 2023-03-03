@@ -209,11 +209,23 @@ class _LoginState extends State<Login> {
               SizedBox(
                 height: 20,
               ),
-              InkWell(
-                  onTap: () async {
-                    await AuthSocial().signInWithGoogle();
-                  },
-                  child: Text("google")),
+              Row(
+                children: [
+                  InkWell(
+                      onTap: () async {
+                        await AuthSocial().signInWithGoogle();
+                      },
+                      child: Text("google")),
+                  SizedBox(
+                    width: 22,
+                  ),
+                  InkWell(
+                      onTap: () async {
+                        await AuthSocial().signInWithFacebook();
+                      },
+                      child: Text("facebook")),
+                ],
+              ),
               SizedBox(
                 height: 20,
               ),

@@ -1,3 +1,4 @@
+import 'package:authfirebase/secreens/socialsingin.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
@@ -211,7 +212,27 @@ class _SignupState extends State<Signup> {
               SizedBox(
                 height: 20,
               ),
+              Row(
+                children: [
+                  InkWell(
+                      onTap: () async {
+                        await AuthSocial().signInWithGoogle();
+                      },
+                      child: Text("google")),
+                  SizedBox(
+                    width: 22,
+                  ),
+                  InkWell(
+                      onTap: () async {
+                        await AuthSocial().signInWithFacebook();
+                      },
+                      child: Text("facebook")),
+                ],
+              ),
 
+              SizedBox(
+                height: 20,
+              ),
               //txt sign up
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
